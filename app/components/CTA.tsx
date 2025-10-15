@@ -9,7 +9,7 @@ export default function CTA() {
             {/* Left Side - Content */}
             <div className="p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
               <div className="inline-block mb-4">
-                <span className="bg-green bg-opacity-10 text-green px-4 py-2 rounded-full text-sm font-semibold">
+                <span className="bg-green text-white bg-opacity-10 px-4 py-2 rounded-full text-sm font-semibold">
                   Limited Time Offer
                 </span>
               </div>

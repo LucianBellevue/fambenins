@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       
       {/* Services Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
@@ -25,7 +25,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-lg border-t-4 border-green hover:shadow-xl transition-shadow duration-300">
               <div className="w-16 h-16 bg-green bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                <HiHeart className="w-8 h-8 text-green" />
+                <HiHeart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">Health Insurance</h3>
               <p className="text-gray-600 mb-6">
@@ -39,7 +39,7 @@ export default function Home() {
 
             <div className="bg-white p-8 rounded-xl shadow-lg border-t-4 border-navy hover:shadow-xl transition-shadow duration-300">
               <div className="w-16 h-16 bg-navy bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                <HiShieldCheck className="w-8 h-8 text-navy" />
+                <HiShieldCheck className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">Life Insurance</h3>
               <p className="text-gray-600 mb-6">
@@ -53,7 +53,7 @@ export default function Home() {
 
             <div className="bg-white p-8 rounded-xl shadow-lg border-t-4 border-green hover:shadow-xl transition-shadow duration-300">
               <div className="w-16 h-16 bg-green bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                <HiBriefcase className="w-8 h-8 text-green" />
+                <HiBriefcase className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">ICHRA Solutions</h3>
               <p className="text-gray-600 mb-6">
@@ -83,7 +83,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-20 h-20 bg-green bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiUserGroup className="w-10 h-10 text-green" />
+                <HiUserGroup className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-2">Expert Guidance</h3>
               <p className="text-gray-600">Licensed agents with years of experience</p>
@@ -91,7 +91,7 @@ export default function Home() {
 
             <div className="text-center">
               <div className="w-20 h-20 bg-green bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiCurrencyDollar className="w-10 h-10 text-green" />
+                <HiCurrencyDollar className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-2">Competitive Rates</h3>
               <p className="text-gray-600">Compare plans to find the best value</p>
@@ -99,7 +99,7 @@ export default function Home() {
 
             <div className="text-center">
               <div className="w-20 h-20 bg-green bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiLightningBolt className="w-10 h-10 text-green" />
+                <HiLightningBolt className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-2">Fast Processing</h3>
               <p className="text-gray-600">Get covered quickly and efficiently</p>
@@ -107,7 +107,7 @@ export default function Home() {
 
             <div className="text-center">
               <div className="w-20 h-20 bg-green bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiSupport className="w-10 h-10 text-green" />
+                <HiSupport className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-2">Ongoing Support</h3>
               <p className="text-gray-600">We&apos;re here whenever you need us</p>
