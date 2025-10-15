@@ -46,17 +46,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/ichra" className="text-gray-300 hover:text-green transition-colors">
-                  ICHRA Solutions
-                </Link>
-              </li>
-              <li>
-                <Link href="/medicare" className="text-gray-300 hover:text-green transition-colors">
-                  Medicare Plans
-                </Link>
-              </li>
-              <li>
-                <Link href="/dental-vision" className="text-gray-300 hover:text-green transition-colors">
-                  Dental & Vision
+                  Group Health Solutions
                 </Link>
               </li>
             </ul>

@@ -55,9 +55,9 @@ export default function Home() {
               <div className="w-16 h-16 bg-green bg-opacity-10 rounded-full flex items-center justify-center mb-6">
                 <HiBriefcase className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">ICHRA Solutions</h3>
+              <h3 className="text-2xl font-bold text-navy mb-4">Group Health Solutions</h3>
               <p className="text-gray-600 mb-6">
-                Innovative health benefits for small businesses through Individual Coverage HRAs. Flexible, cost-effective, and compliant.
+                Comprehensive group health insurance options for businesses including traditional plans, ICHRA, level-funded, and association plans.
               </p>
               <a href="/ichra" className="text-green font-semibold hover:text-green-light transition-colors inline-flex items-center gap-2">
                 Learn More

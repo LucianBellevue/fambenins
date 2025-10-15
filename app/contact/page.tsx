@@ -197,9 +197,6 @@ export default function ContactPage() {
                       <option value="group-health">Group Health Plan</option>
                       <option value="individual-health">Individual Health Plan</option>
                       <option value="life">Life Insurance</option>
-                      <option value="ichra">ICHRA for Business</option>
-                      <option value="medicare">Medicare</option>
-                      <option value="dental-vision">Dental & Vision</option>
                       <option value="multiple">Multiple Types</option>
                     </select>
                   </div>

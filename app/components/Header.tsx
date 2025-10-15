@@ -40,7 +40,7 @@ export default function Header() {
               href="/ichra" 
               className="text-white hover:text-green transition-colors duration-200 font-medium"
             >
-              ICHRA Solutions
+              Group Health
             </Link>
             <Link 
               href="/about" 
@@ -95,7 +95,7 @@ export default function Header() {
                 className="text-white hover:text-green transition-colors duration-200 font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                ICHRA Solutions
+                Group Health
               </Link>
               <Link 
                 href="/about" 
