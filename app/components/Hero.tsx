@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { HiCheckCircle } from 'react-icons/hi';
 
 export default function Hero() {
   return (
@@ -16,11 +17,11 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-block mb-4">
               <span className="bg-green text-navy px-4 py-2 rounded-full text-sm font-semibold">
-                🛡️ Trusted Insurance Partner Since 2024
+                🛡️ Trusted Insurance Partner Since 2021
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Your Family's Health & Financial Security{' '}
+              Your Family&apos;s Health & Financial Security{' '}
               <span className="text-green">Starts Here</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-200 mb-8 leading-relaxed">
@@ -36,7 +37,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/about"
-                className="bg-white bg-opacity-10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all duration-200 text-lg text-center"
+                className="bg-white bg-opacity-10 backdrop-blur-sm text-green border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all duration-200 text-lg text-center"
               >
                 How It Works
               </Link>
@@ -45,21 +46,15 @@ export default function Hero() {
             {/* Trust Indicators */}
             <div className="mt-12 flex flex-wrap gap-8 justify-center lg:justify-start text-sm">
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
+                <HiCheckCircle className="w-5 h-5 text-green" />
                 <span>Licensed Agents</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
+                <HiCheckCircle className="w-5 h-5 text-green" />
                 <span>No Hidden Fees</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
+                <HiCheckCircle className="w-5 h-5 text-green" />
                 <span>Fast Approval</span>
               </div>
             </div>
@@ -69,19 +64,19 @@ export default function Hero() {
           <div className="grid grid-cols-2 gap-6">
             <div className="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
               <div className="text-4xl font-bold text-green mb-2">500+</div>
-              <div className="text-gray-200">Families Protected</div>
+              <div className="text-navy">Families Protected</div>
             </div>
             <div className="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
               <div className="text-4xl font-bold text-green mb-2">50+</div>
-              <div className="text-gray-200">Business Clients</div>
+              <div className="text-navy">Business Clients</div>
             </div>
             <div className="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
               <div className="text-4xl font-bold text-green mb-2">4.9★</div>
-              <div className="text-gray-200">Client Rating</div>
+              <div className="text-navy">Client Rating</div>
             </div>
             <div className="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
               <div className="text-4xl font-bold text-green mb-2">24/7</div>
-              <div className="text-gray-200">Support Available</div>
+              <div className="text-navy">Support Available</div>
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@ export default function LifeInsurancePage() {
               </Link>
               <a
                 href="tel:5551234567"
-                className="bg-white bg-opacity-10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all duration-200 text-center"
+                className="bg-white bg-opacity-10 backdrop-blur-sm text-green border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all duration-200 text-center"
               >
                 Call (555) 123-4567
               </a>
@@ -223,19 +223,19 @@ export default function LifeInsurancePage() {
               <div>
                 <div className="text-4xl font-bold text-navy mb-2">$50K</div>
                 <div className="text-sm text-navy">Annual Income</div>
-                <div className="text-2xl font-bold mt-2">= $500K-$600K</div>
+                <div className="text-2xl text-navy font-bold mt-2">= $500K-$600K</div>
                 <div className="text-sm text-navy">Recommended Coverage</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-navy mb-2">$75K</div>
                 <div className="text-sm text-navy">Annual Income</div>
-                <div className="text-2xl font-bold mt-2">= $750K-$900K</div>
+                <div className="text-2xl text-navy font-bold mt-2">= $750K-$900K</div>
                 <div className="text-sm text-navy">Recommended Coverage</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-navy mb-2">$100K</div>
                 <div className="text-sm text-navy">Annual Income</div>
-                <div className="text-2xl font-bold mt-2">= $1M-$1.2M</div>
+                <div className="text-2xl text-navy font-bold mt-2">= $1M-$1.2M</div>
                 <div className="text-sm text-navy">Recommended Coverage</div>
               </div>
             </div>
@@ -309,7 +309,7 @@ export default function LifeInsurancePage() {
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-2">{item.title}</h3>
                 <p className="text-gray-600 mb-4">{item.desc}</p>
-                <div className="inline-block bg-green bg-opacity-10 text-green px-3 py-1 rounded-full text-sm font-semibold">
+                <div className="inline-block bg-green text-white bg-opacity-10 px-3 py-1 rounded-full text-sm font-semibold">
                   {item.time}
                 </div>
               </div>

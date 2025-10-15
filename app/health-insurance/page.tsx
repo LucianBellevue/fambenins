@@ -34,7 +34,7 @@ export default function HealthInsurancePage() {
               </Link>
               <a
                 href="tel:5551234567"
-                className="bg-white bg-opacity-10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all duration-200 text-center"
+                className="bg-white bg-opacity-10 backdrop-blur-sm text-green border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all duration-200 text-center"
               >
                 Call (555) 123-4567
               </a>

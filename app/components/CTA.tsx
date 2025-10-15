@@ -97,10 +97,10 @@ export default function CTA() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-gray-300 text-lg">
-                  "Best insurance experience I've ever had. The team made everything so simple!"
+                <p className="text-white text-lg">
+                  &quot;Best insurance experience I&apos;ve ever had. The team made everything so simple!&quot;
                 </p>
-                <p className="text-green font-semibold mt-2">- Sarah M., Happy Client</p>
+                <p className="text-green-light font-semibold mt-2">- Sarah M., Happy Client</p>
               </div>
             </div>
           </div>
