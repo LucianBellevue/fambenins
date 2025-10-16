@@ -17,7 +17,7 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-block mb-4">
               <span className="bg-green text-navy px-4 py-2 rounded-full text-sm font-semibold">
-                🛡️ Trusted Insurance Partner Since 2021
+                Trusted Insurance Partner Since 2022
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">

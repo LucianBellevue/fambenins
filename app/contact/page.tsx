@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Footer from '../components/Footer';
-import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi';
+import { HiPhone, HiMail } from 'react-icons/hi';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -35,27 +35,46 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      // Reset form
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        coverageType: '',
-        businessName: '',
-        businessAddress: '',
-        numberOfEmployees: '',
-        familySize: '',
-        currentlyInsured: '',
-        budget: '',
-        message: '',
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    }, 1500);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          coverageType: '',
+          businessName: '',
+          businessAddress: '',
+          numberOfEmployees: '',
+          familySize: '',
+          currentlyInsured: '',
+          budget: '',
+          message: '',
+        });
+      } else {
+        setSubmitStatus('error');
+        console.error('Error:', data.error);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      console.error('Error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -170,7 +189,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green focus:border-transparent transition-colors text-gray-900 placeholder:text-gray-500"
-                      placeholder="(555) 123-4567"
+                      placeholder="(463) 263-3583"
                     />
                   </div>
                 </div>
@@ -377,15 +396,15 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Methods */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="grid md:grid-cols-2 gap-6 mt-12 max-w-3xl mx-auto">
             <div className="bg-white rounded-xl shadow-md p-6 text-center">
               <div className="w-16 h-16 bg-green bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <HiPhone className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-bold text-navy mb-2">Call Us</h3>
               <p className="text-gray-600 mb-2">Mon-Fri: 8am-8pm</p>
-              <a href="tel:5551234567" className="text-green font-semibold hover:text-green-light">
-                (555) 123-4567
+              <a href="tel:4632633583" className="text-green font-semibold hover:text-green-light">
+                (463) 263-3583
               </a>
             </div>
 
@@ -395,21 +414,9 @@ export default function ContactPage() {
               </div>
               <h3 className="font-bold text-navy mb-2">Email Us</h3>
               <p className="text-gray-600 mb-2">24/7 Response</p>
-              <a href="mailto:info@familybenefitscenter.com" className="text-green font-semibold hover:text-green-light break-all">
-                info@familybenefitscenter.com
+              <a href="mailto:services@familybenefitscenter.com" className="text-green font-semibold hover:text-green-light break-all">
+                services@familybenefitscenter.com
               </a>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-md p-6 text-center">
-              <div className="w-16 h-16 bg-green bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiLocationMarker className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="font-bold text-navy mb-2">Visit Us</h3>
-              <p className="text-gray-600 text-sm">
-                123 Insurance Way<br />
-                Suite 100<br />
-                Your City, ST 12345
-              </p>
             </div>
           </div>
         </div>

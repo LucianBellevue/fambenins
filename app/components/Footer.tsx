@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { HiShieldCheck, HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi';
+import Image from 'next/image';
+import { HiPhone, HiMail } from 'react-icons/hi';
 import { FaFacebook, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
@@ -12,7 +13,13 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <HiShieldCheck className="w-8 h-8 text-green" />
+              <Image 
+                src="/famben_icon.png" 
+                alt="Family Benefits Center Icon" 
+                width={32} 
+                height={32}
+                className="w-8 h-8"
+              />
               <h3 className="text-2xl font-bold">
                 Family Benefits <span className="text-green">Center</span>
               </h3>
@@ -90,15 +97,11 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-start gap-2">
                 <HiPhone className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>(555) 123-4567</span>
+                <span>(463) 263-3583</span>
               </li>
               <li className="flex items-start gap-2">
                 <HiMail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>info@familybenefitscenter.com</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <HiLocationMarker className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>123 Insurance Way<br />Suite 100<br />Your City, ST 12345</span>
+                <span>services@familybenefitscenter.com</span>
               </li>
             </ul>
           </div>

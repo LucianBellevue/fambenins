@@ -12,6 +12,16 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Family Benefits Center - Health & Life Insurance Solutions",
   description: "Professional health and life insurance services including ICHRA solutions for small businesses. Trusted insurance partner protecting families and businesses.",
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+    other: [
+      { rel: 'icon', url: '/favicon.ico' },
+    ],
+  },
 };
 
 export default function RootLayout({

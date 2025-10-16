@@ -65,7 +65,7 @@ export default function CTA() {
                   Get Free Quote
                 </Link>
                 <Link
-                  href="tel:5551234567"
+                  href="tel:4632633583"
                   className="bg-navy text-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200 text-center text-lg flex items-center justify-center gap-2"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

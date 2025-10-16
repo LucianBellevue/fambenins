@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
-import { HiShieldCheck } from 'react-icons/hi';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 export default function Header() {
@@ -15,7 +15,14 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-3">
-              <HiShieldCheck className="w-10 h-10 text-green" />
+              <Image 
+                src="/famben_icon.png" 
+                alt="Family Benefits Center Icon" 
+                width={40} 
+                height={40}
+                className="w-10 h-10"
+                priority
+              />
               <span className="text-2xl font-bold text-white">
                 Family Benefits <span className="text-green">Center</span>
               </span>

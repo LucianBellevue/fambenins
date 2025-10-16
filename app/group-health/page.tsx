@@ -387,8 +387,8 @@ export default function GroupHealthPage() {
             <Link href="/contact" className="bg-green text-navy px-8 py-4 rounded-lg font-bold hover:bg-green-light transition-all shadow-lg inline-block">
               Get Free Quote
             </Link>
-            <a href="tel:5551234567" className="bg-white bg-opacity-10 backdrop-blur-sm text-green border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all inline-block">
-              Call (555) 123-4567
+            <a href="tel:4632633583" className="bg-white bg-opacity-10 backdrop-blur-sm text-green border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all inline-block">
+              Call (463) 263-3583
             </a>
           </div>
         </div>
