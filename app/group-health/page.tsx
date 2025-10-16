@@ -28,7 +28,7 @@ export default function GroupHealthPage() {
               <Link href="/contact" className="bg-green text-navy px-8 py-4 rounded-lg font-bold hover:bg-green-light transition-all shadow-lg inline-block text-center">
                 Get a Free Quote
               </Link>
-              <a href="#solutions" className="bg-white bg-opacity-10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all inline-block text-center">
+              <a href="#solutions" className="bg-white bg-opacity-10 backdrop-blur-sm text-green border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all inline-block text-center">
                 Explore Solutions
               </a>
             </div>
@@ -51,7 +51,7 @@ export default function GroupHealthPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-20 h-20 bg-green bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiUserGroup className="w-10 h-10 text-green" />
+                <HiUserGroup className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-2">Attract Talent</h3>
               <p className="text-gray-600">Competitive benefits help recruit top employees</p>
@@ -59,7 +59,7 @@ export default function GroupHealthPage() {
 
             <div className="text-center">
               <div className="w-20 h-20 bg-green bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiShieldCheck className="w-10 h-10 text-green" />
+                <HiShieldCheck className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-2">Retain Staff</h3>
               <p className="text-gray-600">Reduce turnover with valuable benefits</p>
@@ -67,7 +67,7 @@ export default function GroupHealthPage() {
 
             <div className="text-center">
               <div className="w-20 h-20 bg-green bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiCurrencyDollar className="w-10 h-10 text-green" />
+                <HiCurrencyDollar className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-2">Tax Advantages</h3>
               <p className="text-gray-600">Premiums are tax-deductible for businesses</p>
@@ -75,7 +75,7 @@ export default function GroupHealthPage() {
 
             <div className="text-center">
               <div className="w-20 h-20 bg-green bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiTrendingUp className="w-10 h-10 text-green" />
+                <HiTrendingUp className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-2">Boost Productivity</h3>
               <p className="text-gray-600">Healthy employees are more productive</p>
@@ -101,7 +101,7 @@ export default function GroupHealthPage() {
             <div className="bg-white rounded-xl p-8 shadow-lg border-2 border-gray-200 hover:border-green hover:shadow-xl transition-all duration-300">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-16 h-16 bg-green bg-opacity-10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <HiShieldCheck className="w-8 h-8 text-green" />
+                  <HiShieldCheck className="w-8 h-8 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-navy mb-2">Traditional Group Health Insurance</h3>
@@ -145,7 +145,7 @@ export default function GroupHealthPage() {
               </div>
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <HiBriefcase className="w-8 h-8 text-white" />
+                  <HiBriefcase className="w-8 h-8 text-green" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold mb-2">ICHRA (Individual Coverage HRA)</h3>
@@ -188,7 +188,7 @@ export default function GroupHealthPage() {
             <div className="bg-white rounded-xl p-8 shadow-lg border-2 border-gray-200 hover:border-green hover:shadow-xl transition-all duration-300">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-16 h-16 bg-green bg-opacity-10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <HiCurrencyDollar className="w-8 h-8 text-green" />
+                  <HiCurrencyDollar className="w-8 h-8 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-navy mb-2">Level-Funded Plans</h3>
@@ -229,7 +229,7 @@ export default function GroupHealthPage() {
             <div className="bg-white rounded-xl p-8 shadow-lg border-2 border-gray-200 hover:border-green hover:shadow-xl transition-all duration-300">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-16 h-16 bg-green bg-opacity-10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <HiUserGroup className="w-8 h-8 text-green" />
+                  <HiUserGroup className="w-8 h-8 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-navy mb-2">Association Health Plans (AHP)</h3>
@@ -387,7 +387,7 @@ export default function GroupHealthPage() {
             <Link href="/contact" className="bg-green text-navy px-8 py-4 rounded-lg font-bold hover:bg-green-light transition-all shadow-lg inline-block">
               Get Free Quote
             </Link>
-            <a href="tel:5551234567" className="bg-white bg-opacity-10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all inline-block">
+            <a href="tel:5551234567" className="bg-white bg-opacity-10 backdrop-blur-sm text-green border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-20 transition-all inline-block">
               Call (555) 123-4567
             </a>
           </div>

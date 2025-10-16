@@ -37,7 +37,7 @@ export default function Header() {
               Life Insurance
             </Link>
             <Link 
-              href="/ichra" 
+              href="/group-health" 
               className="text-white hover:text-green transition-colors duration-200 font-medium"
             >
               Group Health
@@ -91,7 +91,7 @@ export default function Header() {
                 Life Insurance
               </Link>
               <Link 
-                href="/ichra" 
+                href="/group-health" 
                 className="text-white hover:text-green transition-colors duration-200 font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >

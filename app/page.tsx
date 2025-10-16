@@ -59,7 +59,7 @@ export default function Home() {
               <p className="text-gray-600 mb-6">
                 Comprehensive group health insurance options for businesses including traditional plans, ICHRA, level-funded, and association plans.
               </p>
-              <a href="/ichra" className="text-green font-semibold hover:text-green-light transition-colors inline-flex items-center gap-2">
+              <a href="/group-health" className="text-green font-semibold hover:text-green-light transition-colors inline-flex items-center gap-2">
                 Learn More
                 <HiChevronRight className="w-4 h-4" />
               </a>

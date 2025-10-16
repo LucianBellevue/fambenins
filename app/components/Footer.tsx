@@ -45,7 +45,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/ichra" className="text-gray-300 hover:text-green transition-colors">
+                <Link href="/group-health" className="text-gray-300 hover:text-green transition-colors">
                   Group Health Solutions
                 </Link>
               </li>
