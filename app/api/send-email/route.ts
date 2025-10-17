@@ -5,22 +5,22 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const formData = await request.formData();
     
-    const {
-      firstName,
-      lastName,
-      email,
-      phone,
-      coverageType,
-      businessName,
-      businessAddress,
-      numberOfEmployees,
-      familySize,
-      currentlyInsured,
-      budget,
-      message,
-    } = body;
+    const firstName = formData.get('firstName') as string;
+    const lastName = formData.get('lastName') as string;
+    const email = formData.get('email') as string;
+    const phone = formData.get('phone') as string;
+    const coverageType = formData.get('coverageType') as string;
+    const businessName = formData.get('businessName') as string;
+    const businessAddress = formData.get('businessAddress') as string;
+    const numberOfEmployees = formData.get('numberOfEmployees') as string;
+    const familySize = formData.get('familySize') as string;
+    const currentlyInsured = formData.get('currentlyInsured') as string;
+    const budget = formData.get('budget') as string;
+    const careerPosition = formData.get('careerPosition') as string;
+    const message = formData.get('message') as string;
+    const resumeFile = formData.get('resume') as File | null;
 
     // Validate required fields
     if (!firstName || !lastName || !email || !phone || !coverageType) {
@@ -79,6 +79,17 @@ export async function POST(request: NextRequest) {
       `;
     }
 
+    // Add career application information
+    if (coverageType === 'career' && careerPosition) {
+      emailContent += `
+        <div style="background-color: #dbeafe; padding: 20px; border-radius: 8px; margin: 20px 0;">
+          <h3 style="color: #1e3a5f; margin-top: 0;">Career Application</h3>
+          <p><strong>Position:</strong> ${careerPosition}</p>
+          ${resumeFile ? `<p><strong>Resume:</strong> ${resumeFile.name} (${(resumeFile.size / 1024).toFixed(2)} KB)</p>` : ''}
+        </div>
+      `;
+    }
+
     // Add message if provided
     if (message) {
       emailContent += `
@@ -97,14 +108,44 @@ export async function POST(request: NextRequest) {
       </div>
     `;
 
-    // Send email using Resend
-    const { data, error } = await resend.emails.send({
+    // Prepare email options
+    interface EmailOptions {
+      from: string;
+      to: string[];
+      subject: string;
+      html: string;
+      replyTo: string;
+      attachments?: Array<{
+        filename: string;
+        content: Buffer;
+      }>;
+    }
+
+    const emailOptions: EmailOptions = {
       from: 'Family Benefits Center <onboarding@resend.dev>',
       to: ['services@familybenefitscenter.com'],
-      subject: `New ${coverageType.replace('-', ' ').toUpperCase()} Inquiry from ${firstName} ${lastName}`,
+      subject: coverageType === 'career' 
+        ? `Career Application: ${careerPosition} - ${firstName} ${lastName}`
+        : `New ${coverageType.replace('-', ' ').toUpperCase()} Inquiry from ${firstName} ${lastName}`,
       html: emailContent,
       replyTo: email,
-    });
+    };
+
+    // Add attachment if resume file exists
+    if (resumeFile) {
+      const arrayBuffer = await resumeFile.arrayBuffer();
+      const buffer = Buffer.from(arrayBuffer);
+      
+      emailOptions.attachments = [
+        {
+          filename: resumeFile.name,
+          content: buffer,
+        },
+      ];
+    }
+
+    // Send email using Resend
+    const { data, error } = await resend.emails.send(emailOptions);
 
     if (error) {
       console.error('Resend error:', error);

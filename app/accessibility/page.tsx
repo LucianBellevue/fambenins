@@ -191,13 +191,13 @@ export default function AccessibilityPage() {
                 <div className="space-y-2">
                   <p className="text-gray-700">
                     <strong>Email:</strong>{' '}
-                    <a href="mailto:services@familybenefitscenter.com" className="text-green hover:underline">
+                    <a href="mailto:services@familybenefitscenter.com" className="text-white hover:underline">
                       services@familybenefitscenter.com
                     </a>
                   </p>
                   <p className="text-gray-700">
                     <strong>Phone:</strong>{' '}
-                    <a href="tel:4632633583" className="text-green hover:underline">
+                    <a href="tel:4632633583" className="text-white hover:underline">
                       (463) 263-3583
                     </a>
                   </p>

@@ -19,8 +19,12 @@ export default function ContactPage() {
     familySize: '',
     currentlyInsured: '',
     budget: '',
+    // Career Application fields
+    careerPosition: '',
     message: '',
   });
+
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -32,18 +36,40 @@ export default function ContactPage() {
     });
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      // Validate file type and size
+      if (file.type === 'application/pdf' && file.size <= 5 * 1024 * 1024) {
+        setResumeFile(file);
+      } else {
+        alert('Please upload a PDF file under 5MB');
+        e.target.value = '';
+      }
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
     
     try {
+      const formDataToSend = new FormData();
+      
+      // Append all form fields
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataToSend.append(key, value);
+      });
+      
+      // Append resume file if exists
+      if (resumeFile) {
+        formDataToSend.append('resume', resumeFile);
+      }
+
       const response = await fetch('/api/send-email', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
       });
 
       const data = await response.json();
@@ -63,8 +89,13 @@ export default function ContactPage() {
           familySize: '',
           currentlyInsured: '',
           budget: '',
+          careerPosition: '',
           message: '',
         });
+        setResumeFile(null);
+        // Reset file input
+        const fileInput = document.getElementById('resume') as HTMLInputElement;
+        if (fileInput) fileInput.value = '';
       } else {
         setSubmitStatus('error');
         console.error('Error:', data.error);
@@ -217,9 +248,52 @@ export default function ContactPage() {
                       <option value="individual-health">Individual Health Plan</option>
                       <option value="life">Life Insurance</option>
                       <option value="multiple">Multiple Types</option>
+                      <option value="career">Career Application</option>
                     </select>
                   </div>
                 </div>
+
+                {/* Conditional Fields for Career Application */}
+                {formData.coverageType === 'career' && (
+                  <>
+                    <div className="grid md:grid-cols-2 gap-6 mb-6">
+                      <div>
+                        <label htmlFor="careerPosition" className="block text-sm font-semibold text-navy mb-2">
+                          Position Applying For *
+                        </label>
+                        <select
+                          id="careerPosition"
+                          name="careerPosition"
+                          value={formData.careerPosition}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green focus:border-transparent transition-colors text-gray-900"
+                        >
+                          <option value="">Select position</option>
+                          <option value="licensed-insurance-agent">Licensed Insurance Agent</option>
+                          <option value="customer-service-representative">Customer Service Representative</option>
+                          <option value="marketing-coordinator">Marketing Coordinator</option>
+                          <option value="other">Other Position</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label htmlFor="resume" className="block text-sm font-semibold text-navy mb-2">
+                          Upload Resume (PDF) *
+                        </label>
+                        <input
+                          type="file"
+                          id="resume"
+                          name="resume"
+                          accept=".pdf"
+                          onChange={handleFileChange}
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green focus:border-transparent transition-colors text-gray-900 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-green file:text-navy hover:file:bg-green-light"
+                        />
+                        <p className="text-xs text-gray-500 mt-1">PDF only, max 5MB</p>
+                      </div>
+                    </div>
+                  </>
+                )}
 
                 {/* Conditional Fields for Group Health Plan */}
                 {formData.coverageType === 'group-health' && (
