@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { HiPhone, HiMail } from 'react-icons/hi';
