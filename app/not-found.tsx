@@ -3,6 +3,9 @@
 import Link from 'next/link';
 import { HiHome, HiArrowLeft, HiPhone } from 'react-icons/hi';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-navy via-navy to-[#2a4d6f] flex items-center justify-center px-4">

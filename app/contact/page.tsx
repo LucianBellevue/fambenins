@@ -4,6 +4,9 @@ import { useState } from 'react';
 import Footer from '../components/Footer';
 import { HiPhone, HiMail } from 'react-icons/hi';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     firstName: '',
