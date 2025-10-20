@@ -1,9 +1,20 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Link from 'next/link';
 
 export default function AccessibilityPage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}

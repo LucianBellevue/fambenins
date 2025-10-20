@@ -13,26 +13,11 @@ export default function ContactPage() {
   }, []);
 
   if (!mounted) {
-    return (
-      <div className="min-h-screen bg-gray-50">
-        <section className="bg-gradient-to-br from-navy via-navy to-[#2a4d6f] text-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-                Get Your Free Insurance Quote
-              </h1>
-              <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-                Loading form...
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
-    );
+    return null;
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50" suppressHydrationWarning>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy via-navy to-[#2a4d6f] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
