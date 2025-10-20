@@ -25,6 +25,7 @@ export default function ContactForm() {
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -95,10 +96,12 @@ export default function ContactForm() {
         if (fileInput) fileInput.value = '';
       } else {
         setSubmitStatus('error');
+        setErrorMessage(data.error || 'Unknown error occurred');
         console.error('Error:', data.error);
       }
     } catch (error) {
       setSubmitStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'Network error occurred');
       console.error('Error:', error);
     } finally {
       setIsSubmitting(false);
@@ -417,8 +420,16 @@ export default function ContactForm() {
 
           {submitStatus === 'error' && (
             <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-red-600 text-sm">
-                There was an error submitting your request. Please try again or call us at (463) 263-3583.
+              <p className="text-red-600 text-sm font-semibold mb-1">
+                There was an error submitting your request.
+              </p>
+              {errorMessage && (
+                <p className="text-red-500 text-xs">
+                  Error: {errorMessage}
+                </p>
+              )}
+              <p className="text-red-600 text-sm mt-2">
+                Please try again or call us at (463) 263-3583.
               </p>
             </div>
           )}
