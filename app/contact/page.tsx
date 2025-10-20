@@ -1,13 +1,36 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
 import { HiPhone, HiMail } from 'react-icons/hi';
 
-export const metadata = {
-  title: 'Contact Us | Family Benefits Center',
-  description: 'Get your free insurance quote. Contact Family Benefits Center for personalized health and life insurance solutions.',
-};
-
 export default function ContactPage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <section className="bg-gradient-to-br from-navy via-navy to-[#2a4d6f] text-white py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+                Get Your Free Insurance Quote
+              </h1>
+              <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+                Loading form...
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
