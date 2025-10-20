@@ -1,10 +1,7 @@
+'use client';
+
 import Footer from '../components/Footer';
 import Link from 'next/link';
-
-export const metadata = {
-  title: 'Accessibility Statement | Family Benefits Center',
-  description: 'Family Benefits Center is committed to ensuring digital accessibility for people with disabilities.',
-};
 
 export default function AccessibilityPage() {
   return (
