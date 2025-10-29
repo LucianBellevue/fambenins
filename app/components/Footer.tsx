@@ -30,7 +30,7 @@ export default function Footer() {
               Your trusted partner for comprehensive health and life insurance solutions.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.linkedin.com/company/family-benefits-center" className="text-gray-300 hover:text-green transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/family-benefits-center" target="_blank" className="text-gray-300 hover:text-green transition-colors" aria-label="LinkedIn">
                 <FaLinkedin className="w-6 h-6" />
               </a>
             </div>
