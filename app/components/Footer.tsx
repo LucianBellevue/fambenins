@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { HiPhone, HiMail } from 'react-icons/hi';
-import { FaFacebook, FaLinkedin } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -30,10 +30,7 @@ export default function Footer() {
               Your trusted partner for comprehensive health and life insurance solutions.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-gray-300 hover:text-green transition-colors" aria-label="Facebook">
-                <FaFacebook className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-green transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/family-benefits-center" className="text-gray-300 hover:text-green transition-colors" aria-label="LinkedIn">
                 <FaLinkedin className="w-6 h-6" />
               </a>
             </div>
