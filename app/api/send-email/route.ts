@@ -152,7 +152,32 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
-    return NextResponse.json({ success: true, data });
+    // Generate unique transaction ID for postback
+    const transactionId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    
+    // Fire vendor postback (non-blocking)
+    const postbackUrl = `https://www.fnuyz5etrk.com/?nid=2291&transaction_id=${transactionId}`;
+    
+    // Fire postback asynchronously without waiting for response
+    fetch(postbackUrl, {
+      method: 'GET',
+      headers: {
+        'User-Agent': 'FamilyBenefitsCenter/1.0',
+      },
+    })
+      .then(response => {
+        console.log(`Postback fired successfully: ${postbackUrl} - Status: ${response.status}`);
+      })
+      .catch(error => {
+        console.error('Postback error:', error);
+        // Don't fail the main request if postback fails
+      });
+
+    return NextResponse.json({ 
+      success: true, 
+      data,
+      transactionId 
+    });
   } catch (error) {
     console.error('Email error:', error);
     return NextResponse.json(
