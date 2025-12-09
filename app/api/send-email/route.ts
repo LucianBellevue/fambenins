@@ -3,6 +3,11 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Configure route for Node.js runtime
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+export const maxDuration = 60; // Maximum execution time in seconds
+
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
