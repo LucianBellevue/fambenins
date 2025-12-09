@@ -1,5 +1,10 @@
 # Vercel Deployment Checklist
 
+## Security Update - CVE-2025-66478 FIXED ✅
+- **Updated Next.js from 15.5.5 → 16.0.8** to fix critical security vulnerability
+- All npm vulnerabilities resolved (0 vulnerabilities)
+- Build tested and passing ✅
+
 ## Changes Made to Fix Deployment Issues
 
 ### 1. **API Route Configuration** (`app/api/send-email/route.ts`)
