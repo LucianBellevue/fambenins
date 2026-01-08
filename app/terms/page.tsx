@@ -2,8 +2,17 @@ import Footer from '../components/Footer';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Terms of Service | Family Benefits Center',
-  description: 'Terms of Service for Family Benefits Center. Read our terms and conditions for using our website and services.',
+  title: 'Terms of Service - Website Terms & Conditions | Family Benefits Center',
+  description: 'Terms of Service for Family Benefits Center. Read our terms and conditions for using our website and insurance services. Learn about our policies and procedures.',
+  alternates: {
+    canonical: '/terms',
+  },
+  openGraph: {
+    title: 'Terms of Service - Website Terms & Conditions',
+    description: 'Terms and conditions for using Family Benefits Center services.',
+    url: '/terms',
+    type: 'website',
+  },
 };
 
 export default function TermsPage() {

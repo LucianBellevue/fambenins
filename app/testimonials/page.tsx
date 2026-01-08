@@ -3,8 +3,25 @@ import { HiStar } from 'react-icons/hi';
 import { testimonials, getFeaturedTestimonials } from '../data/testimonials';
 
 export const metadata = {
-  title: 'Client Testimonials | Family Benefits Center',
-  description: 'Read what our clients say about Family Benefits Center. Discover how we\'ve helped families and businesses find the perfect insurance coverage.',
+  title: 'Client Testimonials & Reviews - 5-Star Insurance Service | Family Benefits Center',
+  description: 'Read what our clients say about Family Benefits Center. 500+ happy clients with 5-star ratings. Discover how we\'ve helped families and businesses find the perfect insurance coverage.',
+  keywords: [
+    'insurance reviews',
+    'insurance testimonials',
+    'client reviews',
+    'insurance agent reviews',
+    'customer testimonials',
+    '5-star insurance',
+  ],
+  alternates: {
+    canonical: '/testimonials',
+  },
+  openGraph: {
+    title: 'Client Testimonials & Reviews - 5-Star Insurance Service',
+    description: '500+ happy clients share their experiences with Family Benefits Center.',
+    url: '/testimonials',
+    type: 'website',
+  },
 };
 
 export default function TestimonialsPage() {

@@ -119,9 +119,22 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          <p className="text-gray-500 text-xs mt-4 text-center md:text-left">
-            Insurance products are offered through licensed agents. Not all products available in all states.
-          </p>
+          <div className="mt-4 text-center md:text-left">
+            <p className="text-gray-500 text-xs">
+              Insurance products are offered through licensed agents. Not all products available in all states.
+            </p>
+            <p className="text-gray-500 text-xs mt-2">
+              Website powered by{' '}
+              <a 
+                href="https://uiforge.io" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-green hover:text-green-light transition-colors font-medium"
+              >
+                UiForge
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

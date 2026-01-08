@@ -3,8 +3,25 @@ import Link from 'next/link';
 import { HiShieldCheck, HiUsers, HiLightBulb, HiHeart, HiCheckCircle, HiTrendingUp } from 'react-icons/hi';
 
 export const metadata = {
-  title: 'About Us | Family Benefits Center',
-  description: 'Learn about Family Benefits Center, your trusted insurance partner since 2022. We provide personalized health and life insurance solutions for individuals and businesses.',
+  title: 'About Us - Your Trusted Insurance Partner Since 2022 | Family Benefits Center',
+  description: 'Learn about Family Benefits Center, your trusted insurance partner since 2022. We provide personalized health and life insurance solutions for individuals and businesses. Licensed agents committed to excellence.',
+  keywords: [
+    'about family benefits center',
+    'insurance broker',
+    'licensed insurance agents',
+    'insurance company',
+    'trusted insurance partner',
+    'insurance agency',
+  ],
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: 'About Us - Your Trusted Insurance Partner | Family Benefits Center',
+    description: 'Learn about Family Benefits Center, your trusted insurance partner since 2022.',
+    url: '/about',
+    type: 'website',
+  },
 };
 
 export default function AboutPage() {

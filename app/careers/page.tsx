@@ -3,8 +3,26 @@ import Link from 'next/link';
 import { HiUsers, HiTrendingUp, HiHeart, HiLightBulb, HiCheckCircle, HiBriefcase } from 'react-icons/hi';
 
 export const metadata = {
-  title: 'Careers | Family Benefits Center',
-  description: 'Join the Family Benefits Center team. Explore career opportunities in insurance and help families protect what matters most.',
+  title: 'Careers - Join Our Insurance Team | Family Benefits Center',
+  description: 'Join the Family Benefits Center team. Explore career opportunities in insurance including licensed agent positions, customer service roles, and more. Help families protect what matters most.',
+  keywords: [
+    'insurance careers',
+    'insurance agent jobs',
+    'insurance broker jobs',
+    'licensed insurance agent',
+    'insurance sales jobs',
+    'work in insurance',
+    'insurance employment',
+  ],
+  alternates: {
+    canonical: '/careers',
+  },
+  openGraph: {
+    title: 'Careers - Join Our Insurance Team | Family Benefits Center',
+    description: 'Explore career opportunities in insurance and help families protect what matters most.',
+    url: '/careers',
+    type: 'website',
+  },
 };
 
 export default function CareersPage() {

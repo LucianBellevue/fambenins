@@ -3,8 +3,28 @@ import Footer from '../components/Footer';
 import { HiShieldCheck, HiUserGroup, HiCurrencyDollar, HiTrendingUp, HiBriefcase, HiCheckCircle, HiChevronRight } from 'react-icons/hi';
 
 export const metadata = {
-  title: 'Group Health Solutions for Business | Family Benefits Center',
-  description: 'Comprehensive group health insurance solutions including traditional plans, ICHRA, level-funded options, and more for businesses of all sizes.',
+  title: 'Group Health Insurance - ICHRA, Traditional & Level-Funded Plans | Family Benefits Center',
+  description: 'Comprehensive group health insurance solutions for businesses. ICHRA, traditional group plans, level-funded options, and association health plans. Expert guidance for small to large businesses.',
+  keywords: [
+    'group health insurance',
+    'ICHRA',
+    'business health insurance',
+    'small business health insurance',
+    'employee benefits',
+    'group health plans',
+    'level-funded insurance',
+    'association health plans',
+    'employer health insurance',
+  ],
+  alternates: {
+    canonical: '/group-health',
+  },
+  openGraph: {
+    title: 'Group Health Insurance - ICHRA & Business Solutions',
+    description: 'Comprehensive group health insurance solutions for businesses of all sizes.',
+    url: '/group-health',
+    type: 'website',
+  },
 };
 
 export default function GroupHealthPage() {

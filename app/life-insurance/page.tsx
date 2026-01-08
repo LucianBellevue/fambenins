@@ -2,8 +2,27 @@ import Link from 'next/link';
 import Footer from '../components/Footer';
 
 export const metadata = {
-  title: 'Life Insurance Plans | Family Benefits Center',
-  description: 'Protect your loved ones with comprehensive life insurance. Term life, whole life, and universal life options available.',
+  title: 'Life Insurance - Term, Whole & Universal Life Policies | Family Benefits Center',
+  description: 'Protect your loved ones with comprehensive life insurance. Compare term life, whole life, and universal life policies. Get free quotes and expert guidance from licensed agents.',
+  keywords: [
+    'life insurance',
+    'term life insurance',
+    'whole life insurance',
+    'universal life insurance',
+    'life insurance quotes',
+    'affordable life insurance',
+    'family protection',
+    'life insurance coverage',
+  ],
+  alternates: {
+    canonical: '/life-insurance',
+  },
+  openGraph: {
+    title: 'Life Insurance - Term, Whole & Universal Life Policies',
+    description: 'Protect your loved ones with comprehensive life insurance. Compare policies and get free quotes.',
+    url: '/life-insurance',
+    type: 'website',
+  },
 };
 
 export default function LifeInsurancePage() {

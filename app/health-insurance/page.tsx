@@ -2,8 +2,27 @@ import Link from 'next/link';
 import Footer from '../components/Footer';
 
 export const metadata = {
-  title: 'Health Insurance Plans | Family Benefits Center',
-  description: 'Comprehensive health insurance plans for individuals and families. ACA marketplace plans, short-term coverage, and more.',
+  title: 'Health Insurance Plans - ACA Marketplace & Individual Coverage | Family Benefits Center',
+  description: 'Comprehensive health insurance plans for individuals and families. ACA marketplace plans, short-term coverage, family plans, and subsidized options. Get free quotes from licensed agents.',
+  keywords: [
+    'health insurance',
+    'ACA marketplace',
+    'individual health insurance',
+    'family health insurance',
+    'short-term health insurance',
+    'affordable care act',
+    'health insurance quotes',
+    'medical insurance',
+  ],
+  alternates: {
+    canonical: '/health-insurance',
+  },
+  openGraph: {
+    title: 'Health Insurance Plans - ACA Marketplace & Individual Coverage',
+    description: 'Comprehensive health insurance plans for individuals and families with free quotes from licensed agents.',
+    url: '/health-insurance',
+    type: 'website',
+  },
 };
 
 export default function HealthInsurancePage() {

@@ -2,8 +2,17 @@ import Footer from '../components/Footer';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Privacy Policy | Family Benefits Center',
-  description: 'Privacy Policy for Family Benefits Center. Learn how we collect, use, and protect your personal information.',
+  title: 'Privacy Policy - Data Protection & Security | Family Benefits Center',
+  description: 'Privacy Policy for Family Benefits Center. Learn how we collect, use, and protect your personal information. HIPAA compliant insurance broker.',
+  alternates: {
+    canonical: '/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy - Data Protection & Security',
+    description: 'Learn how we protect your personal and health information.',
+    url: '/privacy',
+    type: 'website',
+  },
 };
 
 export default function PrivacyPage() {
