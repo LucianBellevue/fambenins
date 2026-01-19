@@ -127,7 +127,7 @@ export async function POST(request: NextRequest) {
     }
 
     const emailOptions: EmailOptions = {
-      from: 'Family Benefits Center <noreply@familybenefitscenter.com>',
+      from: 'Family Benefits Center <onboarding@resend.dev>',
       to: ['services@familybenefitscenter.com'],
       subject: coverageType === 'career' 
         ? `Career Application: ${careerPosition} - ${firstName} ${lastName}`
