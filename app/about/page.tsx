@@ -1,5 +1,6 @@
 import Footer from '../components/Footer';
 import Link from 'next/link';
+import Breadcrumb from '../components/Breadcrumb';
 import { HiShieldCheck, HiUsers, HiLightBulb, HiHeart, HiCheckCircle, HiTrendingUp } from 'react-icons/hi';
 
 export const metadata = {
@@ -27,6 +28,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      <Breadcrumb path="/about" variant="light" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy via-navy to-[#2a4d6f] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,7 +41,7 @@ export default function AboutPage() {
               Your Family&apos;s Well-Being is Our Mission
             </h1>
             <p className="text-xl text-gray-200 leading-relaxed">
-              We&apos;re more than just an insurance agency—we&apos;re your dedicated partner in protecting 
+              We&apos;re more than just an insurance agency—we&apos;re your dedicated partner in protecting
               what matters most to you and your family.
             </p>
           </div>
@@ -54,22 +56,22 @@ export default function AboutPage() {
               <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  Founded in 2022, Family Benefits Center was born from a simple yet powerful vision: 
+                  Founded in 2022, Family Benefits Center was born from a simple yet powerful vision:
                   to make quality insurance accessible, understandable, and affordable for everyone.
                 </p>
                 <p>
-                  We recognized that navigating the complex world of insurance can be overwhelming. 
-                  Families and businesses deserve a trusted partner who takes the time to understand 
+                  We recognized that navigating the complex world of insurance can be overwhelming.
+                  Families and businesses deserve a trusted partner who takes the time to understand
                   their unique needs and provides personalized solutions—not just policies.
                 </p>
                 <p>
-                  Since our founding, we&apos;ve helped hundreds of individuals, families, and businesses 
-                  find the right coverage to protect their health, financial security, and peace of mind. 
-                  Our commitment to exceptional service and genuine care has made us a trusted name in 
+                  Since our founding, we&apos;ve helped hundreds of individuals, families, and businesses
+                  find the right coverage to protect their health, financial security, and peace of mind.
+                  Our commitment to exceptional service and genuine care has made us a trusted name in
                   the insurance industry.
                 </p>
                 <p>
-                  Today, we continue to grow and evolve, always keeping our clients&apos; best interests 
+                  Today, we continue to grow and evolve, always keeping our clients&apos; best interests
                   at the heart of everything we do.
                 </p>
               </div>
@@ -139,7 +141,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">Our Mission</h3>
               <p className="text-gray-700 leading-relaxed">
-                To provide personalized, affordable insurance solutions that protect families and 
+                To provide personalized, affordable insurance solutions that protect families and
                 businesses, while delivering exceptional service with integrity and care.
               </p>
             </div>
@@ -151,7 +153,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">Our Vision</h3>
               <p className="text-gray-700 leading-relaxed">
-                To be the most trusted insurance partner in our community, known for making insurance 
+                To be the most trusted insurance partner in our community, known for making insurance
                 simple, accessible, and tailored to each client&apos;s unique needs.
               </p>
             </div>
@@ -163,7 +165,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">Our Values</h3>
               <p className="text-gray-700 leading-relaxed">
-                Integrity, transparency, compassion, and excellence. We treat every client like family 
+                Integrity, transparency, compassion, and excellence. We treat every client like family
                 and always put their best interests first.
               </p>
             </div>
@@ -193,7 +195,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Health Insurance</h3>
               <p className="text-gray-700 mb-4">
-                Individual and family health plans with comprehensive coverage options tailored to 
+                Individual and family health plans with comprehensive coverage options tailored to
                 your healthcare needs and budget.
               </p>
               <Link href="/health-insurance" className="text-green font-semibold hover:text-green-light">
@@ -208,7 +210,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Life Insurance</h3>
               <p className="text-gray-700 mb-4">
-                Term and permanent life insurance policies to protect your family&apos;s financial 
+                Term and permanent life insurance policies to protect your family&apos;s financial
                 future and provide peace of mind.
               </p>
               <Link href="/life-insurance" className="text-green font-semibold hover:text-green-light">
@@ -223,7 +225,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Group Health Plans</h3>
               <p className="text-gray-700 mb-4">
-                Affordable group health insurance solutions for small businesses, including innovative 
+                Affordable group health insurance solutions for small businesses, including innovative
                 ICHRA options.
               </p>
               <Link href="/group-health" className="text-green font-semibold hover:text-green-light">
@@ -241,7 +243,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">ICHRA Solutions</h3>
               <p className="text-gray-700 mb-4">
-                Modern, flexible health reimbursement arrangements that give employees choice while 
+                Modern, flexible health reimbursement arrangements that give employees choice while
                 controlling costs for employers.
               </p>
               <Link href="/group-health" className="text-green font-semibold hover:text-green-light">
@@ -258,7 +260,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Expert Consultation</h3>
               <p className="text-gray-700 mb-4">
-                Personalized guidance to help you understand your options and make informed decisions 
+                Personalized guidance to help you understand your options and make informed decisions
                 about your insurance coverage.
               </p>
               <Link href="/contact" className="text-green font-semibold hover:text-green-light">
@@ -275,7 +277,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Ongoing Support</h3>
               <p className="text-gray-700 mb-4">
-                We&apos;re here for you beyond the sale—providing continuous support, policy reviews, 
+                We&apos;re here for you beyond the sale—providing continuous support, policy reviews,
                 and assistance whenever you need it.
               </p>
               <Link href="/contact" className="text-green font-semibold hover:text-green-light">
@@ -353,7 +355,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-lg leading-relaxed">
               <p>
-                At Family Benefits Center, we understand that insurance is about more than just policies 
+                At Family Benefits Center, we understand that insurance is about more than just policies
                 and premiums—it&apos;s about protecting the people and things you love most.
               </p>
               <p>

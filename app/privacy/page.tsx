@@ -1,5 +1,6 @@
 import Footer from '../components/Footer';
 import Link from 'next/link';
+import Breadcrumb from '../components/Breadcrumb';
 
 export const metadata = {
   title: 'Privacy Policy - Data Protection & Security | Family Benefits Center',
@@ -18,6 +19,7 @@ export const metadata = {
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      <Breadcrumb path="/privacy" variant="light" />
       {/* Header */}
       <section className="bg-gradient-to-br from-navy via-navy to-[#2a4d6f] text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,12 +34,12 @@ export default function PrivacyPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-xl shadow-lg p-8 sm:p-12">
-            
+
             {/* Introduction */}
             <div className="mb-8">
               <p className="text-gray-700 leading-relaxed">
-                Family Benefits Center (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. 
-                This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you 
+                Family Benefits Center (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy.
+                This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you
                 visit our website or use our services.
               </p>
             </div>
@@ -45,7 +47,7 @@ export default function PrivacyPage() {
             {/* Information We Collect */}
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-navy mb-4">Information We Collect</h2>
-              
+
               <h3 className="text-xl font-semibold text-navy mb-3 mt-6">Personal Information</h3>
               <p className="text-gray-700 mb-3">
                 We may collect personal information that you voluntarily provide to us when you:
@@ -56,7 +58,7 @@ export default function PrivacyPage() {
                 <li>Subscribe to our newsletter or communications</li>
                 <li>Participate in surveys or promotions</li>
               </ul>
-              
+
               <p className="text-gray-700 mt-4">
                 This information may include:
               </p>
@@ -105,7 +107,7 @@ export default function PrivacyPage() {
               <p className="text-gray-700 mb-3">
                 We may share your information with:
               </p>
-              
+
               <h3 className="text-lg font-semibold text-navy mb-2 mt-4">Insurance Carriers</h3>
               <p className="text-gray-700 mb-4">
                 We share your information with insurance companies to obtain quotes and process applications.
@@ -113,19 +115,19 @@ export default function PrivacyPage() {
 
               <h3 className="text-lg font-semibold text-navy mb-2">Service Providers</h3>
               <p className="text-gray-700 mb-4">
-                We work with third-party service providers who assist us with business operations, such as 
+                We work with third-party service providers who assist us with business operations, such as
                 payment processing, email delivery, and website hosting.
               </p>
 
               <h3 className="text-lg font-semibold text-navy mb-2">Legal Requirements</h3>
               <p className="text-gray-700 mb-4">
-                We may disclose your information when required by law, court order, or government regulation, 
+                We may disclose your information when required by law, court order, or government regulation,
                 or to protect our rights and safety.
               </p>
 
               <h3 className="text-lg font-semibold text-navy mb-2">Business Transfers</h3>
               <p className="text-gray-700 mb-4">
-                In the event of a merger, acquisition, or sale of assets, your information may be transferred 
+                In the event of a merger, acquisition, or sale of assets, your information may be transferred
                 to the acquiring entity.
               </p>
 
@@ -138,7 +140,7 @@ export default function PrivacyPage() {
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-navy mb-4">Data Security</h2>
               <p className="text-gray-700 mb-3">
-                We implement appropriate technical and organizational security measures to protect your 
+                We implement appropriate technical and organizational security measures to protect your
                 personal information, including:
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
@@ -149,7 +151,7 @@ export default function PrivacyPage() {
                 <li>Employee training on data protection</li>
               </ul>
               <p className="text-gray-700 mt-4">
-                However, no method of transmission over the internet or electronic storage is 100% secure. 
+                However, no method of transmission over the internet or electronic storage is 100% secure.
                 While we strive to protect your information, we cannot guarantee absolute security.
               </p>
             </div>
@@ -184,7 +186,7 @@ export default function PrivacyPage() {
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-navy mb-4">Cookies and Tracking Technologies</h2>
               <p className="text-gray-700 mb-3">
-                We use cookies and similar tracking technologies to enhance your experience on our website. 
+                We use cookies and similar tracking technologies to enhance your experience on our website.
                 Cookies are small data files stored on your device that help us:
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
@@ -194,7 +196,7 @@ export default function PrivacyPage() {
                 <li>Provide personalized content and advertisements</li>
               </ul>
               <p className="text-gray-700 mt-4">
-                You can control cookies through your browser settings. However, disabling cookies may limit 
+                You can control cookies through your browser settings. However, disabling cookies may limit
                 your ability to use certain features of our website.
               </p>
             </div>
@@ -203,8 +205,8 @@ export default function PrivacyPage() {
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-navy mb-4">Third-Party Websites</h2>
               <p className="text-gray-700">
-                Our website may contain links to third-party websites. We are not responsible for the privacy 
-                practices or content of these external sites. We encourage you to review the privacy policies 
+                Our website may contain links to third-party websites. We are not responsible for the privacy
+                practices or content of these external sites. We encourage you to review the privacy policies
                 of any third-party websites you visit.
               </p>
             </div>
@@ -213,8 +215,8 @@ export default function PrivacyPage() {
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-navy mb-4">Children&apos;s Privacy</h2>
               <p className="text-gray-700">
-                Our services are not directed to individuals under the age of 18. We do not knowingly collect 
-                personal information from children. If you believe we have collected information from a child, 
+                Our services are not directed to individuals under the age of 18. We do not knowingly collect
+                personal information from children. If you believe we have collected information from a child,
                 please contact us immediately.
               </p>
             </div>
@@ -223,8 +225,8 @@ export default function PrivacyPage() {
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-navy mb-4">HIPAA Compliance</h2>
               <p className="text-gray-700">
-                As an insurance broker, we handle protected health information (PHI) in accordance with the 
-                Health Insurance Portability and Accountability Act (HIPAA). We maintain appropriate safeguards 
+                As an insurance broker, we handle protected health information (PHI) in accordance with the
+                Health Insurance Portability and Accountability Act (HIPAA). We maintain appropriate safeguards
                 to protect the privacy and security of your health information.
               </p>
             </div>
@@ -233,9 +235,9 @@ export default function PrivacyPage() {
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-navy mb-4">Changes to This Privacy Policy</h2>
               <p className="text-gray-700">
-                We may update this Privacy Policy from time to time to reflect changes in our practices or 
-                legal requirements. We will notify you of any material changes by posting the updated policy 
-                on our website with a new &quot;Last Updated&quot; date. Your continued use of our services after 
+                We may update this Privacy Policy from time to time to reflect changes in our practices or
+                legal requirements. We will notify you of any material changes by posting the updated policy
+                on our website with a new &quot;Last Updated&quot; date. Your continued use of our services after
                 such changes constitutes acceptance of the updated policy.
               </p>
             </div>
@@ -268,8 +270,8 @@ export default function PrivacyPage() {
 
             {/* Back to Home */}
             <div className="pt-8 border-t border-gray-200">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="inline-flex items-center text-green hover:text-green-light font-semibold transition-colors"
               >
                 ← Back to Home

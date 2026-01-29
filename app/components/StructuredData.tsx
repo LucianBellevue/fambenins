@@ -1,14 +1,16 @@
 'use client';
 
+import { SITE_URL } from '@/lib/site';
+
 export default function StructuredData() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'InsuranceAgency',
     name: 'Family Benefits Center',
     description: 'Professional health and life insurance services including ICHRA solutions for small businesses. Trusted insurance partner protecting families and businesses.',
-    url: 'https://familybenefitscenter.com',
-    logo: 'https://familybenefitscenter.com/famben_icon.png',
-    image: 'https://familybenefitscenter.com/famben_banner.png',
+    url: SITE_URL,
+    logo: `${SITE_URL}/famben_icon.png`,
+    image: `${SITE_URL}/famben_banner.png`,
     telephone: '+14632633583',
     email: 'services@familybenefitscenter.com',
     address: {

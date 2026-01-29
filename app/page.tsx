@@ -3,13 +3,15 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
+import Breadcrumb from './components/Breadcrumb';
 import { HiHeart, HiShieldCheck, HiBriefcase, HiChevronRight, HiUserGroup, HiCurrencyDollar, HiLightningBolt, HiSupport } from 'react-icons/hi';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <Breadcrumb path="/" />
       <Hero />
-      
+
       {/* Services Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

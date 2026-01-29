@@ -1,4 +1,5 @@
 import Footer from '../components/Footer';
+import Breadcrumb from '../components/Breadcrumb';
 import { HiStar } from 'react-icons/hi';
 import { testimonials, getFeaturedTestimonials } from '../data/testimonials';
 
@@ -41,6 +42,7 @@ export default function TestimonialsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Breadcrumb path="/testimonials" variant="light" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy via-navy to-[#2a4d6f] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +55,7 @@ export default function TestimonialsPage() {
               What Our Clients Say
             </h1>
             <p className="text-xl text-gray-200 leading-relaxed">
-              Don&apos;t just take our word for it—hear from the families and businesses we&apos;ve helped 
+              Don&apos;t just take our word for it—hear from the families and businesses we&apos;ve helped
               protect what matters most.
             </p>
           </div>

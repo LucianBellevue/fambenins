@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Footer from '../components/Footer';
+import Breadcrumb from '../components/Breadcrumb';
 import { HiShieldCheck, HiUserGroup, HiCurrencyDollar, HiTrendingUp, HiBriefcase, HiCheckCircle, HiChevronRight } from 'react-icons/hi';
 
 export const metadata = {
@@ -30,6 +31,7 @@ export const metadata = {
 export default function GroupHealthPage() {
   return (
     <div className="min-h-screen">
+      <Breadcrumb path="/group-health" variant="light" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy via-navy to-[#2a4d6f] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,7 +130,7 @@ export default function GroupHealthPage() {
                   <p className="text-green font-semibold">Best for: 50+ employees</p>
                 </div>
               </div>
-              
+
               <p className="text-gray-600 mb-6">
                 Classic employer-sponsored health insurance with comprehensive coverage options. The employer selects the plan(s) and typically shares premium costs with employees.
               </p>
@@ -172,7 +174,7 @@ export default function GroupHealthPage() {
                   <p className="text-white font-semibold opacity-90">Best for: Any size business</p>
                 </div>
               </div>
-              
+
               <p className="text-white opacity-90 mb-6">
                 Give employees a fixed allowance to purchase their own individual health insurance. You control costs, they control choice.
               </p>
@@ -215,7 +217,7 @@ export default function GroupHealthPage() {
                   <p className="text-green font-semibold">Best for: 25-100 employees</p>
                 </div>
               </div>
-              
+
               <p className="text-gray-600 mb-6">
                 Hybrid between fully-insured and self-funded. Pay a fixed monthly amount with potential for refunds if claims are lower than expected.
               </p>
@@ -256,7 +258,7 @@ export default function GroupHealthPage() {
                   <p className="text-green font-semibold">Best for: Small businesses, 2-50 employees</p>
                 </div>
               </div>
-              
+
               <p className="text-gray-600 mb-6">
                 Small businesses band together to get better rates and more plan options typically available only to larger companies.
               </p>

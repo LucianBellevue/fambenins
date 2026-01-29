@@ -1,5 +1,6 @@
 import Footer from '../components/Footer';
 import Link from 'next/link';
+import Breadcrumb from '../components/Breadcrumb';
 import { HiUsers, HiTrendingUp, HiHeart, HiLightBulb, HiCheckCircle, HiBriefcase } from 'react-icons/hi';
 
 export const metadata = {
@@ -28,6 +29,7 @@ export const metadata = {
 export default function CareersPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      <Breadcrumb path="/careers" variant="light" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy via-navy to-[#2a4d6f] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,7 +42,7 @@ export default function CareersPage() {
               Build Your Career with Purpose
             </h1>
             <p className="text-xl text-gray-200 leading-relaxed">
-              Join a team that&apos;s making a real difference in people&apos;s lives while building a 
+              Join a team that&apos;s making a real difference in people&apos;s lives while building a
               rewarding career in the insurance industry.
             </p>
           </div>
@@ -67,7 +69,7 @@ export default function CareersPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Meaningful Work</h3>
               <p className="text-gray-700">
-                Help families and businesses protect what matters most. Every day, you&apos;ll make a 
+                Help families and businesses protect what matters most. Every day, you&apos;ll make a
                 real difference in people&apos;s lives.
               </p>
             </div>
@@ -79,7 +81,7 @@ export default function CareersPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Growth Opportunities</h3>
               <p className="text-gray-700">
-                We&apos;re a growing company with unlimited potential. Grow your skills, advance your 
+                We&apos;re a growing company with unlimited potential. Grow your skills, advance your
                 career, and reach your full potential.
               </p>
             </div>
@@ -91,7 +93,7 @@ export default function CareersPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Great Culture</h3>
               <p className="text-gray-700">
-                Join a supportive, collaborative team that values integrity, excellence, and treating 
+                Join a supportive, collaborative team that values integrity, excellence, and treating
                 each other like family.
               </p>
             </div>
@@ -103,7 +105,7 @@ export default function CareersPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Training & Development</h3>
               <p className="text-gray-700">
-                Comprehensive training programs, mentorship, and ongoing professional development to 
+                Comprehensive training programs, mentorship, and ongoing professional development to
                 help you succeed.
               </p>
             </div>
@@ -118,7 +120,7 @@ export default function CareersPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Competitive Compensation</h3>
               <p className="text-gray-700">
-                Attractive salary packages, commission structures, and performance bonuses that reward 
+                Attractive salary packages, commission structures, and performance bonuses that reward
                 your hard work.
               </p>
             </div>
@@ -132,7 +134,7 @@ export default function CareersPage() {
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Work-Life Balance</h3>
               <p className="text-gray-700">
-                Flexible schedules, remote work options, and a culture that values your personal time 
+                Flexible schedules, remote work options, and a culture that values your personal time
                 and well-being.
               </p>
             </div>
@@ -159,7 +161,7 @@ export default function CareersPage() {
                 <div>
                   <h3 className="text-lg font-bold text-navy mb-2">Integrity First</h3>
                   <p className="text-gray-700">
-                    We do what&apos;s right, even when no one is watching. Honesty and transparency 
+                    We do what&apos;s right, even when no one is watching. Honesty and transparency
                     are non-negotiable.
                   </p>
                 </div>
@@ -184,7 +186,7 @@ export default function CareersPage() {
                 <div>
                   <h3 className="text-lg font-bold text-navy mb-2">Excellence</h3>
                   <p className="text-gray-700">
-                    We strive for excellence in everything we do, from client service to professional 
+                    We strive for excellence in everything we do, from client service to professional
                     development.
                   </p>
                 </div>
@@ -197,7 +199,7 @@ export default function CareersPage() {
                 <div>
                   <h3 className="text-lg font-bold text-navy mb-2">Collaboration</h3>
                   <p className="text-gray-700">
-                    We work together as a team, supporting and lifting each other up to achieve 
+                    We work together as a team, supporting and lifting each other up to achieve
                     shared goals.
                   </p>
                 </div>
@@ -210,7 +212,7 @@ export default function CareersPage() {
                 <div>
                   <h3 className="text-lg font-bold text-navy mb-2">Continuous Growth</h3>
                   <p className="text-gray-700">
-                    We&apos;re always learning, improving, and pushing ourselves to be better than 
+                    We&apos;re always learning, improving, and pushing ourselves to be better than
                     we were yesterday.
                   </p>
                 </div>
@@ -261,8 +263,8 @@ export default function CareersPage() {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                We&apos;re seeking experienced, licensed insurance agents who are passionate about helping 
-                clients find the right coverage. You&apos;ll work with individuals and businesses to provide 
+                We&apos;re seeking experienced, licensed insurance agents who are passionate about helping
+                clients find the right coverage. You&apos;ll work with individuals and businesses to provide
                 health and life insurance solutions.
               </p>
               <div className="mb-4">
@@ -298,8 +300,8 @@ export default function CareersPage() {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                Join our team as a Customer Service Representative and be the friendly voice that helps 
-                clients navigate their insurance needs. You&apos;ll provide exceptional support and ensure 
+                Join our team as a Customer Service Representative and be the friendly voice that helps
+                clients navigate their insurance needs. You&apos;ll provide exceptional support and ensure
                 every client feels valued.
               </p>
               <div className="mb-4">
@@ -335,7 +337,7 @@ export default function CareersPage() {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                Help us grow our brand and reach more families who need quality insurance. You&apos;ll manage 
+                Help us grow our brand and reach more families who need quality insurance. You&apos;ll manage
                 social media, create content, and execute marketing campaigns.
               </p>
               <div className="mb-4">
@@ -360,7 +362,7 @@ export default function CareersPage() {
           <div className="mt-12 text-center bg-navy text-white rounded-xl p-8 max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">Don&apos;t See the Right Fit?</h3>
             <p className="text-gray-200 mb-6">
-              We&apos;re always looking for talented, passionate people to join our team. Send us your 
+              We&apos;re always looking for talented, passionate people to join our team. Send us your
               resume and tell us how you can contribute to our mission.
             </p>
             <Link

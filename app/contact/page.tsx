@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
+import Breadcrumb from '../components/Breadcrumb';
 import { HiPhone, HiMail } from 'react-icons/hi';
 
 export default function ContactPage() {
@@ -18,6 +19,7 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gray-50" suppressHydrationWarning>
+      <Breadcrumb path="/contact" variant="light" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy via-navy to-[#2a4d6f] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

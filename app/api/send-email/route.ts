@@ -1,17 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Configure route for Node.js runtime
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60; // Maximum execution time in seconds
 
 export async function POST(request: NextRequest) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey || apiKey.trim() === '') {
+    console.error('[send-email] RESEND_API_KEY is missing or empty');
+    return NextResponse.json(
+      { error: 'Email service is not configured. Please contact support.' },
+      { status: 503 }
+    );
+  }
+
+  const resend = new Resend(apiKey);
+
   try {
     const formData = await request.formData();
-    
+
     const firstName = formData.get('firstName') as string;
     const lastName = formData.get('lastName') as string;
     const email = formData.get('email') as string;
@@ -50,7 +59,7 @@ export async function POST(request: NextRequest) {
         <h2 style="color: #1e3a5f; border-bottom: 3px solid #10b981; padding-bottom: 10px;">
           New Contact Form Submission
         </h2>
-        
+
         <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
           <h3 style="color: #1e3a5f; margin-top: 0;">Contact Information</h3>
           <p><strong>Name:</strong> ${firstName} ${lastName}</p>
@@ -129,7 +138,7 @@ export async function POST(request: NextRequest) {
     const emailOptions: EmailOptions = {
       from: 'Family Benefits Center <onboarding@resend.dev>',
       to: ['services@familybenefitscenter.com'],
-      subject: coverageType === 'career' 
+      subject: coverageType === 'career'
         ? `Career Application: ${careerPosition} - ${firstName} ${lastName}`
         : `New ${coverageType.replace('-', ' ').toUpperCase()} Inquiry from ${firstName} ${lastName}`,
       html: emailContent,
@@ -140,7 +149,7 @@ export async function POST(request: NextRequest) {
     if (resumeFile) {
       const arrayBuffer = await resumeFile.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
-      
+
       emailOptions.attachments = [
         {
           filename: resumeFile.name,
@@ -153,16 +162,36 @@ export async function POST(request: NextRequest) {
     const { data, error } = await resend.emails.send(emailOptions);
 
     if (error) {
-      console.error('Resend error:', error);
-      return NextResponse.json({ error: error.message }, { status: 400 });
+      console.error('[send-email] Resend error:', error);
+      return NextResponse.json(
+        { error: error.message || 'Failed to send email' },
+        { status: 502 }
+      );
     }
+
+    console.log('[send-email] Resend success:', { id: data?.id, to: emailOptions.to, subject: emailOptions.subject });
 
     // Generate unique transaction ID for postback
     const transactionId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    
-    // Fire vendor postback (non-blocking)
-    const postbackUrl = `https://www.fnuyz5etrk.com/?nid=2291&transaction_id=${transactionId}`;
-    
+
+    // Build vendor postback URL with lead data so vendor can verify submitted data
+    const postbackParams = new URLSearchParams({
+      nid: '2291',
+      transaction_id: transactionId,
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      phone,
+      coverage_type: coverageType,
+    });
+    // Add optional fields if present (URL-safe)
+    if (businessName) postbackParams.set('business_name', businessName);
+    if (numberOfEmployees) postbackParams.set('number_of_employees', numberOfEmployees);
+    if (familySize) postbackParams.set('family_size', familySize);
+    if (careerPosition) postbackParams.set('career_position', careerPosition);
+
+    const postbackUrl = `https://www.fnuyz5etrk.com/?${postbackParams.toString()}`;
+
     // Fire postback asynchronously without waiting for response
     fetch(postbackUrl, {
       method: 'GET',
@@ -170,24 +199,35 @@ export async function POST(request: NextRequest) {
         'User-Agent': 'FamilyBenefitsCenter/1.0',
       },
     })
-      .then(response => {
-        console.log(`Postback fired successfully: ${postbackUrl} - Status: ${response.status}`);
+      .then((response) => {
+        console.log(`[send-email] Postback fired: ${response.status} - transaction_id=${transactionId}`);
       })
-      .catch(error => {
-        console.error('Postback error:', error);
+      .catch((err) => {
+        console.error('[send-email] Postback error:', err);
         // Don't fail the main request if postback fails
       });
 
-    return NextResponse.json({ 
-      success: true, 
+    return NextResponse.json({
+      success: true,
       data,
-      transactionId 
+      transactionId,
     });
   } catch (error) {
-    console.error('Email error:', error);
+    console.error('[send-email] Unexpected error:', error);
+    const message = error instanceof Error ? error.message : 'Failed to send email';
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { error: message },
       { status: 500 }
     );
   }
+}
+
+/** GET: Check if email service (Resend) is configured. Use before vendor test. */
+export async function GET() {
+  const apiKey = process.env.RESEND_API_KEY;
+  const configured = Boolean(apiKey && apiKey.trim() !== '');
+  if (!configured) {
+    return NextResponse.json({ configured: false, error: 'RESEND_API_KEY not set' }, { status: 503 });
+  }
+  return NextResponse.json({ configured: true });
 }

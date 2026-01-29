@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Footer from '../components/Footer';
+import Breadcrumb from '../components/Breadcrumb';
 
 export const metadata = {
   title: 'Life Insurance - Term, Whole & Universal Life Policies | Family Benefits Center',
@@ -28,6 +29,7 @@ export const metadata = {
 export default function LifeInsurancePage() {
   return (
     <div className="min-h-screen">
+      <Breadcrumb path="/life-insurance" variant="light" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy via-navy to-[#2a4d6f] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
