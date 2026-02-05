@@ -26,6 +26,8 @@
 Make sure these are set in your Vercel project settings:
 
 1. **RESEND_API_KEY** - Your Resend API key from https://resend.com/api-keys
+2. **LEAD_EMAIL_TO** (optional) - Where lead form emails are sent. Defaults to `services@familybenefitscenter.com` if not set.
+3. **RESEND_FROM_EMAIL** (optional) - Sender for lead emails. Use after verifying your domain, e.g. `Family Benefits Center <leads@familybenefitscenter.com>`. If unset, uses `onboarding@resend.dev` (then Resend only allows sending to your account email).
 
 To add environment variables in Vercel:
 1. Go to your project dashboard
@@ -42,14 +44,24 @@ To add environment variables in Vercel:
 4. **Output Directory**: Leave as default (`.next`)
 5. **Node.js Version**: Should auto-detect from Next.js (20.x)
 
-### ✅ Domain Configuration (Resend)
+### ✅ Resend: Sending to services@familybenefitscenter.com
 
-For production email sending, ensure your domain is verified in Resend:
-1. Go to https://resend.com/domains
-2. Add and verify `familybenefitscenter.com`
-3. Add required DNS records (SPF, DKIM, DMARC)
+**You do not “add” or “verify” the recipient in Resend.** Recipients (like `services@familybenefitscenter.com`) do not need to be allowed or verified. The restriction *"you can only send test emails to your email"* happens because the app is sending **from** Resend’s test address (`onboarding@resend.dev`). In that mode, Resend only allows sending **to** the email of the Resend account owner.
 
-For testing, you can use `onboarding@resend.dev` as the sender email.
+To send lead form emails **to** `services@familybenefitscenter.com` (or any address):
+
+1. **Verify your sending domain in Resend** (so you can send *from* your domain, not from `onboarding@resend.dev`):
+   - Go to [Resend → Domains](https://resend.com/domains).
+   - Click **Add Domain** and enter `familybenefitscenter.com` (or a subdomain like `mail.familybenefitscenter.com`).
+   - Resend will show **SPF** and **DKIM** records. Add them as DNS records at your domain registrar (where you manage familybenefitscenter.com).
+   - In Resend, click **Verify DNS Records**. Wait until the domain status is **Verified** (can take a few minutes to 72 hours).
+   - Optionally add a **DMARC** record for better deliverability ([Resend DMARC docs](https://resend.com/docs/dashboard/domains/dmarc)).
+
+2. **Send from an address on that domain**
+   After the domain is verified, set the sender to an address on that domain (e.g. `leads@familybenefitscenter.com` or `noreply@familybenefitscenter.com`). In this project you can set the env var **`RESEND_FROM_EMAIL`** (see below). Once you use a verified-domain “from” address, you can send to **any** recipient, including `services@familybenefitscenter.com`.
+
+3. **Optional env var**
+   - **`RESEND_FROM_EMAIL`** – Sender used for lead emails. Use format `"Family Benefits Center <leads@familybenefitscenter.com>"`. If unset, the app uses `Family Benefits Center <onboarding@resend.dev>` (Resend test mode; only the account owner can receive).
 
 ## Common Deployment Issues & Solutions
 
@@ -62,13 +74,13 @@ For testing, you can use `onboarding@resend.dev` as the sender email.
 **Solution**: Already fixed with `maxDuration: 60` in both route.ts and vercel.json
 
 ### Issue 3: Environment variables not working
-**Solution**: 
+**Solution**:
 - Double-check variable names match exactly (case-sensitive)
 - Redeploy after adding/changing environment variables
 - Check the deployment logs for missing variables
 
 ### Issue 4: API route returning 404
-**Solution**: 
+**Solution**:
 - Verify the route is at `app/api/send-email/route.ts`
 - Check that the file exports `POST` function
 - Clear Vercel build cache and redeploy

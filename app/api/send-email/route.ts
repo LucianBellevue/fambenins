@@ -1,15 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Configure route for Node.js runtime
+const DEFAULT_LEAD_EMAIL = 'services@familybenefitscenter.com';
+// When using onboarding@resend.dev, Resend only allows sending to the account owner. Set RESEND_FROM_EMAIL to a verified domain address (e.g. "Family Benefits Center <leads@familybenefitscenter.com>") to send to any recipient.
+const DEFAULT_FROM_EMAIL = 'Family Benefits Center <onboarding@resend.dev>';
+
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-export const maxDuration = 60; // Maximum execution time in seconds
+export const maxDuration = 60;
 
 export async function POST(request: NextRequest) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey || apiKey.trim() === '') {
     console.error('[send-email] RESEND_API_KEY is missing or empty');
+    return NextResponse.json(
+      { error: 'Email service is not configured. Please contact support.' },
+      { status: 503 }
+    );
+  }
+
+  const toEmail = (process.env.LEAD_EMAIL_TO || DEFAULT_LEAD_EMAIL).trim();
+  if (!toEmail) {
+    console.error('[send-email] LEAD_EMAIL_TO is empty');
     return NextResponse.json(
       { error: 'Email service is not configured. Please contact support.' },
       { status: 503 }
@@ -135,9 +147,10 @@ export async function POST(request: NextRequest) {
       }>;
     }
 
+    const fromEmail = (process.env.RESEND_FROM_EMAIL || DEFAULT_FROM_EMAIL).trim();
     const emailOptions: EmailOptions = {
-      from: 'Family Benefits Center <onboarding@resend.dev>',
-      to: ['services@familybenefitscenter.com'],
+      from: fromEmail,
+      to: [toEmail],
       subject: coverageType === 'career'
         ? `Career Application: ${careerPosition} - ${firstName} ${lastName}`
         : `New ${coverageType.replace('-', ' ').toUpperCase()} Inquiry from ${firstName} ${lastName}`,
@@ -161,18 +174,19 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     const { data, error } = await resend.emails.send(emailOptions);
 
-    if (error) {
-      console.error('[send-email] Resend error:', error);
-      return NextResponse.json(
-        { error: error.message || 'Failed to send email' },
-        { status: 502 }
-      );
-    }
-
-    console.log('[send-email] Resend success:', { id: data?.id, to: emailOptions.to, subject: emailOptions.subject });
-
-    // Generate unique transaction ID for postback
     const transactionId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+
+    if (error) {
+      // Do not expose Resend errors (e.g. "you can only send test emails to your email") to the lead.
+      // Log the lead and error so it's not lost; still fire postback and return success so the lead "passes through."
+      console.error('[send-email] Resend error (lead still accepted):', error.message, {
+        transactionId,
+        lead: { firstName, lastName, email, phone, coverageType, businessName, numberOfEmployees, familySize, careerPosition },
+      });
+      // Fall through to postback + success response
+    } else {
+      console.log('[send-email] Resend success:', { id: data?.id, to: emailOptions.to, subject: emailOptions.subject });
+    }
 
     // Build vendor postback URL with lead data so vendor can verify submitted data
     const postbackParams = new URLSearchParams({
@@ -184,7 +198,6 @@ export async function POST(request: NextRequest) {
       phone,
       coverage_type: coverageType,
     });
-    // Add optional fields if present (URL-safe)
     if (businessName) postbackParams.set('business_name', businessName);
     if (numberOfEmployees) postbackParams.set('number_of_employees', numberOfEmployees);
     if (familySize) postbackParams.set('family_size', familySize);
@@ -192,25 +205,23 @@ export async function POST(request: NextRequest) {
 
     const postbackUrl = `https://www.fnuyz5etrk.com/?${postbackParams.toString()}`;
 
-    // Fire postback asynchronously without waiting for response
     fetch(postbackUrl, {
       method: 'GET',
-      headers: {
-        'User-Agent': 'FamilyBenefitsCenter/1.0',
-      },
+      headers: { 'User-Agent': 'FamilyBenefitsCenter/1.0' },
     })
       .then((response) => {
         console.log(`[send-email] Postback fired: ${response.status} - transaction_id=${transactionId}`);
       })
       .catch((err) => {
         console.error('[send-email] Postback error:', err);
-        // Don't fail the main request if postback fails
       });
 
+    // Always return success so the lead sees thank-you and vendor gets postback; never expose Resend errors to the user.
     return NextResponse.json({
       success: true,
-      data,
       transactionId,
+      ...(data && { data }),
+      ...(error && { emailDelivered: false }),
     });
   } catch (error) {
     console.error('[send-email] Unexpected error:', error);

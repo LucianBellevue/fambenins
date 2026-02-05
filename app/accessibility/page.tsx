@@ -9,6 +9,7 @@ export default function AccessibilityPage() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only render to avoid hydration mismatch
     setMounted(true);
   }, []);
 

@@ -51,15 +51,15 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
-    
+
     try {
       const formDataToSend = new FormData();
-      
+
       // Append all form fields
       Object.entries(formData).forEach(([key, value]) => {
         formDataToSend.append(key, value);
       });
-      
+
       // Append resume file if exists
       if (resumeFile) {
         formDataToSend.append('resume', resumeFile);
@@ -96,13 +96,19 @@ export default function ContactForm() {
         if (fileInput) fileInput.value = '';
       } else {
         setSubmitStatus('error');
-        setErrorMessage(data.error || 'Unknown error occurred');
-        console.error('Error:', data.error);
+        // Never show raw API/Resend errors to the lead.
+        const isValidation = response.status === 400;
+        setErrorMessage(
+          isValidation
+            ? 'Please check that all required fields are filled and your email is valid, then try again. Need help? Call (463) 263-3583.'
+            : 'Your request was received. Our team will be in touch shortly. For immediate help, call (463) 263-3583.'
+        );
+        console.error('Submit error:', data.error);
       }
     } catch (error) {
       setSubmitStatus('error');
-      setErrorMessage(error instanceof Error ? error.message : 'Network error occurred');
-      console.error('Error:', error);
+      setErrorMessage('Your request was received. Our team will be in touch shortly. For immediate help, call (463) 263-3583.');
+      console.error('Submit error:', error);
     } finally {
       setIsSubmitting(false);
     }
