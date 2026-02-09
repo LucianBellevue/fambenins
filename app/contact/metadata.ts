@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contact Us - Get Free Quote | Family Benefits Center',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Us - Get Free Quote | Family Benefits Center',
     description: 'Contact Family Benefits Center for a free insurance quote. Licensed agents ready to help with health, life, and group insurance.',
-    url: '/contact',
+    url: `${SITE_URL}/contact`,
     type: 'website',
   },
 };

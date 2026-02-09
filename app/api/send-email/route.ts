@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const DEFAULT_LEAD_EMAIL = 'services@familybenefitscenter.com';
-// When using onboarding@resend.dev, Resend only allows sending to the account owner. Set RESEND_FROM_EMAIL to a verified domain address (e.g. "Family Benefits Center <leads@familybenefitscenter.com>") to send to any recipient.
-const DEFAULT_FROM_EMAIL = 'Family Benefits Center <onboarding@resend.dev>';
+import { CONTACT_EMAIL } from '@/lib/site';
+
+const DEFAULT_LEAD_EMAIL = CONTACT_EMAIL;
+const DEFAULT_FROM_EMAIL = 'Family Benefits Center <noreply@familybenefitscenter.com>';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

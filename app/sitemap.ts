@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
 
-/** Key images for SEO (canonical https, no www). */
+/** All sitemap URLs are canonical https (no www). Every public app route is listed. */
 const IMAGES = {
   banner: `${SITE_URL}/famben_banner.png`,
   icon: `${SITE_URL}/famben_icon.png`,

@@ -1,6 +1,7 @@
 import Footer from '../components/Footer';
 import Link from 'next/link';
 import Breadcrumb from '../components/Breadcrumb';
+import { CONTACT_EMAIL } from '@/lib/site';
 
 export const metadata = {
   title: 'Terms of Service - Website Terms & Conditions | Family Benefits Center',
@@ -306,8 +307,8 @@ export default function TermsPage() {
                 <p className="text-gray-700 font-semibold mb-2">Family Benefits Center</p>
                 <p className="text-gray-700">
                   Email:{' '}
-                  <a href="mailto:services@familybenefitscenter.com" className="text-green hover:underline">
-                    services@familybenefitscenter.com
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-green hover:underline">
+                    {CONTACT_EMAIL}
                   </a>
                 </p>
                 <p className="text-gray-700">

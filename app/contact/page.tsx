@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
 import Breadcrumb from '../components/Breadcrumb';
+import { CONTACT_EMAIL } from '@/lib/site';
 import { HiPhone, HiMail } from 'react-icons/hi';
 
 export default function ContactPage() {
@@ -65,8 +66,8 @@ export default function ContactPage() {
               </div>
               <h3 className="font-bold text-navy mb-2">Email Us</h3>
               <p className="text-gray-600 mb-2">24/7 Response</p>
-              <a href="mailto:services@familybenefitscenter.com" className="text-green font-semibold hover:text-green-light break-all">
-                services@familybenefitscenter.com
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-green font-semibold hover:text-green-light break-all">
+                {CONTACT_EMAIL}
               </a>
             </div>
           </div>

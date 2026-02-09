@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Link from 'next/link';
 import Breadcrumb from '../components/Breadcrumb';
+import { CONTACT_EMAIL } from '@/lib/site';
 
 export default function AccessibilityPage() {
   const [mounted, setMounted] = useState(false);
@@ -202,8 +203,8 @@ export default function AccessibilityPage() {
                 <div className="space-y-2">
                   <p className="text-gray-700">
                     <strong>Email:</strong>{' '}
-                    <a href="mailto:services@familybenefitscenter.com" className="text-white hover:underline">
-                      services@familybenefitscenter.com
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="text-white hover:underline">
+                      {CONTACT_EMAIL}
                     </a>
                   </p>
                   <p className="text-gray-700">

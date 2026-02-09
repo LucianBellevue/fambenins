@@ -1,6 +1,7 @@
 import Footer from '../components/Footer';
 import Link from 'next/link';
 import Breadcrumb from '../components/Breadcrumb';
+import { CONTACT_EMAIL } from '@/lib/site';
 
 export const metadata = {
   title: 'Privacy Policy - Data Protection & Security | Family Benefits Center',
@@ -172,8 +173,8 @@ export default function PrivacyPage() {
               </ul>
               <p className="text-gray-700 mt-4">
                 To exercise these rights, please contact us at{' '}
-                <a href="mailto:services@familybenefitscenter.com" className="text-green hover:underline">
-                  services@familybenefitscenter.com
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-green hover:underline">
+                  {CONTACT_EMAIL}
                 </a>
                 {' '}or call us at{' '}
                 <a href="tel:4632633583" className="text-green hover:underline">
@@ -252,8 +253,8 @@ export default function PrivacyPage() {
                 <p className="text-gray-700 font-semibold mb-2">Family Benefits Center</p>
                 <p className="text-gray-700">
                   Email:{' '}
-                  <a href="mailto:services@familybenefitscenter.com" className="text-green hover:underline">
-                    services@familybenefitscenter.com
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-green hover:underline">
+                    {CONTACT_EMAIL}
                   </a>
                 </p>
                 <p className="text-gray-700">

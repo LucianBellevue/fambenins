@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Accessibility Statement | Family Benefits Center',
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Accessibility Statement | Family Benefits Center',
     description: 'Our commitment to digital accessibility and ensuring equal access for all users.',
-    url: '/accessibility',
+    url: `${SITE_URL}/accessibility`,
     type: 'website',
   },
 };

@@ -1,6 +1,6 @@
 'use client';
 
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, CONTACT_EMAIL } from '@/lib/site';
 
 export default function StructuredData() {
   const structuredData = {
@@ -12,7 +12,7 @@ export default function StructuredData() {
     logo: `${SITE_URL}/famben_icon.png`,
     image: `${SITE_URL}/famben_banner.png`,
     telephone: '+14632633583',
-    email: 'services@familybenefitscenter.com',
+    email: CONTACT_EMAIL,
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'US',

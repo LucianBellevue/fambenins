@@ -1,6 +1,7 @@
 import Footer from '../components/Footer';
 import Link from 'next/link';
 import Breadcrumb from '../components/Breadcrumb';
+import { CONTACT_EMAIL } from '@/lib/site';
 import { HiUsers, HiTrendingUp, HiHeart, HiLightBulb, HiCheckCircle, HiBriefcase } from 'react-icons/hi';
 
 export const metadata = {
@@ -448,7 +449,7 @@ export default function CareersPage() {
               Apply Now
             </Link>
             <a
-              href="mailto:services@familybenefitscenter.com"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="bg-navy text-white px-8 py-4 rounded-lg font-bold hover:bg-opacity-90 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-lg"
             >
               Email Your Resume

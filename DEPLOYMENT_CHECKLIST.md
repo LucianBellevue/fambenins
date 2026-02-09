@@ -26,8 +26,8 @@
 Make sure these are set in your Vercel project settings:
 
 1. **RESEND_API_KEY** - Your Resend API key from https://resend.com/api-keys
-2. **LEAD_EMAIL_TO** (optional) - Where lead form emails are sent. Defaults to `services@familybenefitscenter.com` if not set.
-3. **RESEND_FROM_EMAIL** (optional) - Sender for lead emails. Use after verifying your domain, e.g. `Family Benefits Center <leads@familybenefitscenter.com>`. If unset, uses `onboarding@resend.dev` (then Resend only allows sending to your account email).
+2. **LEAD_EMAIL_TO** (optional) - Where lead form emails are sent. Defaults to `advisor@familybenefitscenter.com` if not set.
+3. **RESEND_FROM_EMAIL** (optional) - Sender for lead emails. With domain verified, use e.g. `Family Benefits Center <noreply@familybenefitscenter.com>`. If unset, app uses `noreply@familybenefitscenter.com` (ensure this address is verified in Resend).
 
 To add environment variables in Vercel:
 1. Go to your project dashboard
@@ -44,24 +44,17 @@ To add environment variables in Vercel:
 4. **Output Directory**: Leave as default (`.next`)
 5. **Node.js Version**: Should auto-detect from Next.js (20.x)
 
-### ✅ Resend: Sending to services@familybenefitscenter.com
+### ✅ Resend: Sending to advisor@familybenefitscenter.com (familybenefitscenter.com domain)
 
-**You do not “add” or “verify” the recipient in Resend.** Recipients (like `services@familybenefitscenter.com`) do not need to be allowed or verified. The restriction *"you can only send test emails to your email"* happens because the app is sending **from** Resend’s test address (`onboarding@resend.dev`). In that mode, Resend only allows sending **to** the email of the Resend account owner.
+The site uses **advisor@familybenefitscenter.com** as the primary contact and lead-form recipient. Lead form submissions are sent to this address via Resend.
 
-To send lead form emails **to** `services@familybenefitscenter.com` (or any address):
+**With your domain verified in Resend** (familybenefitscenter.com):
 
-1. **Verify your sending domain in Resend** (so you can send *from* your domain, not from `onboarding@resend.dev`):
-   - Go to [Resend → Domains](https://resend.com/domains).
-   - Click **Add Domain** and enter `familybenefitscenter.com` (or a subdomain like `mail.familybenefitscenter.com`).
-   - Resend will show **SPF** and **DKIM** records. Add them as DNS records at your domain registrar (where you manage familybenefitscenter.com).
-   - In Resend, click **Verify DNS Records**. Wait until the domain status is **Verified** (can take a few minutes to 72 hours).
-   - Optionally add a **DMARC** record for better deliverability ([Resend DMARC docs](https://resend.com/docs/dashboard/domains/dmarc)).
+1. The app sends **from** `Family Benefits Center <noreply@familybenefitscenter.com>` by default (override with **`RESEND_FROM_EMAIL`** in Vercel if needed).
+2. Lead emails are sent **to** `advisor@familybenefitscenter.com` (override with **`LEAD_EMAIL_TO`** in Vercel if needed).
+3. Ensure **RESEND_API_KEY** is set in Vercel. No need to “add” the recipient in Resend; once the domain is verified, you can send to any address at your domain.
 
-2. **Send from an address on that domain**
-   After the domain is verified, set the sender to an address on that domain (e.g. `leads@familybenefitscenter.com` or `noreply@familybenefitscenter.com`). In this project you can set the env var **`RESEND_FROM_EMAIL`** (see below). Once you use a verified-domain “from” address, you can send to **any** recipient, including `services@familybenefitscenter.com`.
-
-3. **Optional env var**
-   - **`RESEND_FROM_EMAIL`** – Sender used for lead emails. Use format `"Family Benefits Center <leads@familybenefitscenter.com>"`. If unset, the app uses `Family Benefits Center <onboarding@resend.dev>` (Resend test mode; only the account owner can receive).
+**If you have not yet verified the domain:** Add and verify `familybenefitscenter.com` in [Resend → Domains](https://resend.com/domains) (SPF + DKIM), then send from an address on that domain. Until then, Resend may restrict who can receive test emails.
 
 ## Common Deployment Issues & Solutions
 
