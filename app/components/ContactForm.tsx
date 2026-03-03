@@ -1,8 +1,13 @@
-'use client';
-
-import { useState } from 'react';
-
-export default function ContactForm() {
+ 'use client';
+ 
+ import { useState } from 'react';
+ 
+ type ContactFormProps = {
+   /** Optional external transaction id (e.g. Everflow transaction_id from URL). */
+   transactionId?: string | null;
+ };
+ 
+ export default function ContactForm({ transactionId }: ContactFormProps) {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -54,12 +59,17 @@ export default function ContactForm() {
 
     try {
       const formDataToSend = new FormData();
-
+      
       // Append all form fields
       Object.entries(formData).forEach(([key, value]) => {
         formDataToSend.append(key, value);
       });
-
+      
+      // Append external transaction id for postback tracking (e.g. Everflow) if present
+      if (transactionId) {
+        formDataToSend.append('transactionId', transactionId);
+      }
+      
       // Append resume file if exists
       if (resumeFile) {
         formDataToSend.append('resume', resumeFile);

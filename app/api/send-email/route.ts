@@ -175,7 +175,14 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     const { data, error } = await resend.emails.send(emailOptions);
 
-    const transactionId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    // Prefer an external transaction id from the form (e.g. Everflow `transaction_id` passed via URL),
+    // fallback to an internally generated id if not provided.
+    const externalTransactionIdRaw = formData.get('transactionId') as string | null;
+    const externalTransactionId = externalTransactionIdRaw?.trim();
+    const transactionId =
+      externalTransactionId && externalTransactionId.length > 0
+        ? externalTransactionId
+        : `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
     if (error) {
       // Do not expose Resend errors (e.g. "you can only send test emails to your email") to the lead.
